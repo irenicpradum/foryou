@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>for you</title>
+
+</head>
+<body>
+<section class="main">
+<div class="heart-container">
+  <div class="heart"></div>
+  <div class="message">
+   MJ Hamesha Mere Saath Rehna! ❤️<br>
+    <span style="font-size: 16px;">(You make my world.)</span>
+  </div>
+</div>
+
+
+
+
+
+<div id="terminal">
+  <div id="output"></div>
+  <span id="current-text"></span><span class="cursor">_</span>
+</div>
+
+
+
+
+
+
+
+  <div class="text-overlay">Our Beautiful Memories ✨</div>
+<div class="carousel">
+  <div class="item"><img src="images/1.jpeg"></div>
+  <div class="item"><img src="images/2.jpeg"></div>
+  <div class="item"><img src="images/3.jpeg"></div>
+  <div class="item"><img src="images/4.jpeg"></div>
+  <div class="item"><img src="images/5.jpeg"></div>
+  <div class="item"><img src="images/6.jpeg"></div>
+  <div class="item"><img src="images/7.jpeg"></div>
+  <div class="item"><img src="images/8.jpeg"></div>
+
+
+
+
+</div>
+
+<script>
+  // Floating Hearts Logic
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart-bg');
+    heart.innerHTML = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+    heart.style.opacity = Math.random();
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, 5000);
+  }
+  setInterval(createHeart, 300);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+<script>
+  const lines = [
+    "> Dear Love...",
+    "> Your smile, Your eyes, Your laugh your presence....",
+    "> just everything about you, I love. In my eyes, you are totally perfect. You're my world,...",
+    "> My life, you mean a lot to me. I will never let you go because I know my life won't be complete ",
+    "> If you're not in it. You're my one and only. I can't promise to fix all your problems but",
+    "> I promise that you will never deal with them alone. I love you with all heart Just remember that always !!.",
+    "> Everything is better with you. Everything has been better Since you.",
+    "> I want to grow old with you and love you for the rest of my life.💻✨"
+  ];
+
+  let lineIndex = 0;
+  let charIndex = 0;
+  const output = document.getElementById('output');
+  const currentText = document.getElementById('current-text');
+
+  function type() {
+    if (lineIndex < lines.length) {
+      if (charIndex < lines[lineIndex].length) {
+        currentText.textContent += lines[lineIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 50); // Typing speed
+      } else {
+        // Line khatam, move to next
+        output.innerHTML += `<div class="line">${currentText.textContent}</div>`;
+        currentText.textContent = "";
+        charIndex = 0;
+        lineIndex++;
+        setTimeout(type, 800); // Pause between lines
+      }
+    } 
+  }
+
+  window.onload = type;
+</script>
+
+
+</body>
+</html>

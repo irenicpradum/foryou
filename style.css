@@ -1,0 +1,196 @@
+ body {
+    background-color: #ffeef2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffeef2;
+  }
+
+
+
+  .main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heart-container {
+    text-align: center;
+    cursor: pointer;
+    
+  }
+
+  .heart {
+    background-color: #ff4d6d;
+    display: inline-block;
+    height: 100px;
+    margin: 0 10px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 100px;
+    animation: pulse 1.2s infinite;
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+    
+  }
+
+  .heart:before, .heart:after {
+    content: "";
+    background-color: #ff4d6d;
+    border-radius: 50%;
+    height: 100px;
+    position: absolute;
+    width: 100px;
+  }
+
+  .heart:before { top: -50px; left: 0; }
+  .heart:after { left: 50px; top: 0; }
+
+  @keyframes pulse {
+    0% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.1); }
+    100% { transform: rotate(-45deg) scale(1); }
+  }
+
+  .message {
+    margin-top: 80px;
+    color: #ff4d6d;
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  /* Jab mouse hover karega tab message dikhega */
+  .heart-container:hover .message {
+    opacity: 1;
+  }
+
+  .heart-container:hover .heart {
+    animation: pulse 0.5s infinite; /* Dhadkan tez ho jayegi */
+    background-color: #ff0033;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  #terminal {
+    width: 80%;
+    max-width: 600px;
+    border: 1px solid #30363d;
+    padding: 20px;
+    background:blue;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-top: 40px;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    background-color: #58a6ff;
+    animation: blink 0.7s infinite;
+  }
+
+  @keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .line { margin-bottom: 10px; min-height: 20px; }
+  .command { color: #7ee787; } /* Green color for commands */
+  .heart { color: #ff7b72; font-size: 10px; } /* Red for heart */
+
+
+
+
+
+
+
+
+
+
+   /* 3D Container */
+  .carousel {
+    width: 200px;
+    height: 250px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 20s linear infinite;
+    margin-top: 50px;
+    
+  }
+
+  @keyframes rotate {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+  }
+
+  .item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #ff4d6d;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+    transition: 0.5s;
+  }
+
+  /* 8 Photos ka setup */
+  .item:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
+  .item:nth-child(2) { transform: rotateY(45deg) translateZ(300px); }
+  .item:nth-child(3) { transform: rotateY(90deg) translateZ(300px); }
+  .item:nth-child(4) { transform: rotateY(135deg) translateZ(300px); }
+  .item:nth-child(5) { transform: rotateY(180deg) translateZ(300px); }
+  .item:nth-child(6) { transform: rotateY(225deg) translateZ(300px); }
+  .item:nth-child(7) { transform: rotateY(270deg) translateZ(300px); }
+  .item:nth-child(8) { transform: rotateY(315deg) translateZ(300px); }
+
+  .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .text-overlay {
+   
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 28px;
+    text-shadow: 2px 2px 10px #4dff5c;
+    z-index: 10;
+    pointer-events: none;
+    margin-top: 100px;
+  }
+
+  /* Hover par animation ruk jayegi */
+  .carousel:hover {
+    animation-play-state: paused;
+  }
+
+  .heart-bg {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: fall linear forwards;
+  }
+
+  @keyframes fall {
+    to { transform: translateY(100vh); }
+  }
